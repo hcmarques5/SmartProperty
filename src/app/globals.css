@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 217 91% 55%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 71% 40%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 55%;
+    --radius: 0.85rem;
+  }
+
+  .dark {
+    --background: 220 45% 8%;
+    --foreground: 210 40% 96%;
+    --card: 220 42% 12%;
+    --card-foreground: 210 40% 96%;
+    --primary: 213 95% 62%;
+    --primary-foreground: 220 45% 8%;
+    --secondary: 220 35% 16%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 220 35% 14%;
+    --muted-foreground: 215 22% 70%;
+    --accent: 220 35% 18%;
+    --accent-foreground: 210 40% 96%;
+    --destructive: 0 78% 58%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 70% 48%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 95% 55%;
+    --warning-foreground: 220 45% 8%;
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 213 95% 62%;
+  }
+
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image:
+      radial-gradient(1200px 600px at 100% -10%, hsl(217 80% 22% / 0.45), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, hsl(213 80% 25% / 0.35), transparent 55%);
+    background-attachment: fixed;
+  }
+  :root:not(.dark) body {
+    background-image:
+      radial-gradient(1200px 600px at 100% -10%, hsl(217 80% 70% / 0.20), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, hsl(213 80% 75% / 0.18), transparent 55%);
+  }
+}
+
+.glass {
+  @apply bg-card/60 backdrop-blur-xl border border-border/60 shadow-sm;
+}
+.gradient-text {
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(213 95% 75%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.card-elevated {
+  @apply rounded-2xl border bg-card shadow-[0_1px_2px_rgba(0,0,0,.25),0_8px_24px_-12px_rgba(0,0,0,.45)];
+}
