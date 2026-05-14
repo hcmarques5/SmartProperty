@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { SuiteSwitcher } from "@/components/suite-switcher";
 import { useI18n, type DictKey } from "@/lib/i18n";
 import { compute, sensitivity, type RoiInputs } from "@/lib/roi";
 import type { CapGainsMode, PropertyType, Region } from "@/lib/pt-tax";
@@ -69,14 +70,17 @@ export default function Page() {
             <p className="text-sm text-muted-foreground">{t("appTagline")}</p>
           </div>
         </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setLocale(locale === "pt" ? "en" : "pt")}
-        >
-          <Languages className="h-4 w-4" />
-          {t("languageToggle")}
-        </Button>
+        <div className="flex items-center gap-2">
+          <SuiteSwitcher current="property" />
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setLocale(locale === "pt" ? "en" : "pt")}
+          >
+            <Languages className="h-4 w-4" />
+            {t("languageToggle")}
+          </Button>
+        </div>
       </header>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
